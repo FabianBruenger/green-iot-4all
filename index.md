@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Green IoT 4 All
 
 You can use the [editor on GitHub](https://github.com/FabianBruenger/green-iot-4all/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
