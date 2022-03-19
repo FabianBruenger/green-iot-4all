@@ -1,0 +1,2 @@
+# Dont push builds for raspberry pi
+firmware/raspberry-pi-zero-w/build/*
