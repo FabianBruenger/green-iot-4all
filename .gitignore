@@ -1,2 +1,5 @@
 # Dont push builds for raspberry pi
-firmware/raspberry-pi-zero-w/build/*
+firmware/raspberry-pi-zero-w/build/*.deb
+
+# Local VS Code settings
+.vscode
