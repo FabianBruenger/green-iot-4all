@@ -8,3 +8,6 @@ firmware/raspberry-pi-zero-w/build/*.deb
 firmware/raspberry-pi-zero-w/ms-01-azure-gateway/target
 firmware/raspberry-pi-zero-w/ms-01-azure-gateway/Cargo.lock
 firmware/raspberry-pi-zero-w/ms-01-azure-gateway/*.yml
+firmware/raspberry-pi-zero-w/ms-02-data-collector/target
+firmware/raspberry-pi-zero-w/ms-02-data-collector/Cargo.lock
+firmware/raspberry-pi-zero-w/ms-02-data-collector/*.yml

@@ -1,0 +1,40 @@
+[package]
+name = "ms-02-data-collector"
+version = "2.0.10"
+authors = ["Fabian Bruenger <fabian.bruenger@outlook.com>"]
+edition = "2018"
+
+[package.metadata.deb]
+maintainer = "Fabian Brünger"
+copyright = "2021, GrowIoT"
+extended-description = """\
+A template for a GrowIoT Rust application."""
+depends = "$auto, systemd"
+section = "misc"
+priority = "extra"
+assets = [
+    ["target/arm-unknown-linux-gnueabi/release/ms-02-data-collector", "/usr/bin/", "755"],
+    ["install/ms-02-data-collector.service", "/lib/systemd/system/", "644"],
+    ["config/sensor-data.json", "/etc/growiot/", "644"],
+    ["config/ms02config.toml", "/etc/growiot/", "644"],
+]
+
+# conf-files = ["/etc/volterion/volterion-emssm-operation-service.toml"]
+maintainer-scripts = "install/"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["vendored"]
+vendored = ["zmq/vendored"]
+
+[dependencies]
+zmq = "0.9.2"
+serde = { version = "1.0", features = ["derive"] }
+config = "0.11"
+serde_json = "1.0.64"
+crossbeam-channel = "0.5.0"
+rppal = "0.11.3"
+log4rs = "1.0.0"
+log = "0.4.14"
+chrono = "0.4.19"

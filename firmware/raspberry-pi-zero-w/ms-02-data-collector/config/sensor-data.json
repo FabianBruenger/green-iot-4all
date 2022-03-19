@@ -1,0 +1,27 @@
+{
+    "0001:01": {
+        "sensortype": "TP",
+        "value": 0,
+        "timestamp": "init"
+    },
+    "0001:02": {
+        "sensortype": "HU",
+        "value": 0,
+        "timestamp": "init"
+    },
+    "0001:03": {
+        "sensortype": "LI",
+        "value": 0,
+        "timestamp": "init"
+    },
+    "0001:04": {
+        "sensortype": "G1",
+        "value": 0,
+        "timestamp": "init"
+    },
+    "0001:05": {
+        "sensortype": "G2",
+        "value": 0,
+        "timestamp": "init"
+    }
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Grow IoT data collect service and UART communication bridge
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/ms-02-data-collector
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
