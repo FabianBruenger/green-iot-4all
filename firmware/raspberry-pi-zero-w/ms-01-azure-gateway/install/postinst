@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#set -e
+
+touch /var/log/growiot/ms-01-azure-gateway.log
+
+systemctl start ms-01-azure-gateway.service
+
+echo "Done updateing!"
+
+exit 0
