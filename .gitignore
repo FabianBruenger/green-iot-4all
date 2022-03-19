@@ -3,3 +3,7 @@ firmware/raspberry-pi-zero-w/build/*.deb
 
 # Local VS Code settings
 .vscode
+
+# Rust
+firmware/raspberry-pi-zero-w/ms-01-azure-gateway/target
+firmware/raspberry-pi-zero-w/ms-01-azure-gateway/Cargo.lock
