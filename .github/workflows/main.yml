@@ -29,4 +29,4 @@ jobs:
       
       - name: Debug
         run: | 
-          echo ${{ steps.check-changes-in-ms01.outputs.any_modified }}
+          echo ${{ steps.check-changes-in-ms01.outputs.any_changed }}
