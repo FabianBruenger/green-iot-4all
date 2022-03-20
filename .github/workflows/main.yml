@@ -38,7 +38,7 @@ jobs:
       
   # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build
   build_ms01:
-    name: Build ms01
+    name: Build MS01 
     needs: evaluate
     runs-on: ubuntu-latest
     if: needs.evaluate.outputs.ms01_build_flag == 'false'
@@ -49,19 +49,24 @@ jobs:
         password: ${{ secrets.JFROG_PASSWORD }}
 
     steps:
-      - name: Checkout Project
-        uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0
+    - name: Debug
+      run: |
+        echo "Test!"
+        ls -lah
+        
+      # - name: Checkout Project
+      #   uses: actions/checkout@v2.3.4
+      #   with:
+      #     fetch-depth: 0
       
-      - name: Build 
-        run: | 
-          cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
-          cargo deb --target=arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
+      # - name: Build 
+      #   run: | 
+      #     cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
+      #     cargo deb --target=arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
       
-      - name: Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: ms01-build-deb
-          path: |
-            /opt/build/ms-01-azure-gateway.deb
+      # - name: Artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: ms01-build-deb
+      #     path: |
+      #       /opt/build/ms-01-azure-gateway.deb
