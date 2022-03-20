@@ -25,7 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v10.1
         with:
           files: |
-            firmware/raspberry-pi-zero-w/ms-01-azure-gateway
+            firmware/raspberry-pi-zero-w/ms-01-azure-gateway/Cargo.toml
       
       - name: Debug
         run: | 
