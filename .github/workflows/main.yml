@@ -24,8 +24,8 @@ jobs:
         id: check-changes-in-ms01
         uses: tj-actions/changed-files@v10.1
         with:
-          path: |
-            firmware/raspberry-pi-zero-w/ms-01-azure-gateway/*
+          files: |
+            firmware/raspberry-pi-zero-w/ms-01-azure-gateway
       
       - name: Debug
         run: | 
