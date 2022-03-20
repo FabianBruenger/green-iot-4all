@@ -1,0 +1,34 @@
+# ----------------------------------------------------------------
+#                           ZMQ
+# ----------------------------------------------------------------
+# Connect to socket for listening for sensor data from ms-02-data-service
+sub_ms01_socket = "tcp://localhost:5556"
+# Bind to that socket to publish data to hardware
+pub_ms02_socket = "tcp://*:5555"
+# Topic for subscribing and receiving sensor data
+pub_ms01_topic = "publish_01"
+# Topic fro publishing data from Azure IoT Hub
+sub_ms02_topic = "publish_ms01"
+
+# ----------------------------------------------------------------
+#                           Logging
+# ----------------------------------------------------------------
+# This is the release logging path on the end device
+logging_path = "/var/log/growiot/ms-02-data-collector.log"
+# Provide dev logging path for building it from src
+logging_path_dev = "log/ms-02-data-collector.log"
+
+# ----------------------------------------------------------------
+#                           Sensor data
+# ----------------------------------------------------------------
+# Path where the general sensorlist is placed. Must match with the hardware sensors!
+sensor_data_path = "/etc/growiot/sensor-data.json"
+sensor_data_path_dev = "config/sensor-data.json"
+
+# ----------------------------------------------------------------
+#                           Timing
+# ----------------------------------------------------------------
+# Intervall of publishing to zmq in ms. I f changed also change the Arduino speed
+intervall_pub_ms01 = 5000
+
+

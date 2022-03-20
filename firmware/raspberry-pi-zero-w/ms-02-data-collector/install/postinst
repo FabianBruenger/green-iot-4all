@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#set -e
+
+mkdir -p /var/log/growiot/
+chown -R -f :pi /var/log/growiot/
+chmod -f 775 /var/log/growiot/
+touch /var/log/growiot/ms-02-data-collector.log
+
+systemctl start ms-02-data-collector.service
+
+echo "Done updateing!"
+
+exit 0

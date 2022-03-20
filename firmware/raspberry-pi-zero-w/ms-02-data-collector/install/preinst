@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+
+case "$1" in
+    install)
+        mkdir /etc/growiot -p
+        ;;
+
+    upgrade|abort-upgrade)
+        systemctl stop ms-02-data-collector.service
+        ;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 0
+        ;;
+esac
+
+exit 0

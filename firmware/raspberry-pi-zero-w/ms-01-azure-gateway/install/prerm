@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+systemctl stop ms-01-azure-gateway.service
+systemctl disable ms-01-azure-gateway.service
+rm -f /var/lock/ms-01-azure-gateway.service
+
+exit 0

@@ -1,0 +1,43 @@
+# ----------------------------------------------------------------
+#                       Azure IoT Hub settings
+# ----------------------------------------------------------------
+# Name of Azure IoT Hub
+hostname = "azure-iot-hub-dev.azure-devices.net"
+# The device adressed
+device_id = "RaspberryPiLocal"
+# Connection String from Azure IoT Hub
+shared_access_key = "Xt4uYkqyAbfJqQjfMfOBDTFn/KUMs+Av1R8DwirvmqA="
+
+# ----------------------------------------------------------------
+#                           ZMQ
+# ----------------------------------------------------------------
+# Connect to socket for listening for sensor data from ms-02-data-service
+sub_ms02_socket = "tcp://localhost:5555"
+# Bind to that socket to publish data to hardware
+pub_ms01_socket = "tcp://*:5556"
+# Topic for subscribing and receiving sensor data
+sub_ms02_topic = "publish_01"
+# Topic fro publishing data from Azure IoT Hub
+pub_ms01_topic = "publish_ms01"
+
+# ----------------------------------------------------------------
+#                           Logging
+# ----------------------------------------------------------------
+# This is the release logging path on the end device
+logging_path = "/var/log/growiot/ms-01-azure-gateway.log"
+# Provide dev logging path for building it from src
+logging_path_dev = "log/ms-01-azure-gateway.log"
+
+# ----------------------------------------------------------------
+#                           Timings
+# ----------------------------------------------------------------
+#
+# The factor_azu_tx sets the needed ticks for wiriting to Azure:
+# time to write to Azure: intervall_zmq_rx * factor_azu_tx
+# 
+#
+# Intervall of reading the zmq socket in ms (should be quite high)
+intervall_zmq_rx = 200
+# Write to the Azure IoT Hub 
+factor_azu_tx = 50
+

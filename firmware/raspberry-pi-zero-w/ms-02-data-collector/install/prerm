@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+systemctl stop ms-02-data-collector.service
+systemctl disable ms-02-data-collector.service
+rm -f /var/lock/ms-02-data-collector.service
+
+exit 0

@@ -1,0 +1,73 @@
+[package]
+name = "ms-01-azure-gateway"
+version = "1.0.5"
+authors = ["Fabian Bruenger <fabian.bruenger@pexon-consulting.de>"]
+edition = "2018"
+
+[package.metadata.deb]
+maintainer = "Fabian Brünger"
+copyright = "2021, GrowIoT"
+extended-description = """\
+A template for a GrowIoT Rust application."""
+depends = "$auto, systemd"
+section = "misc"
+priority = "extra"
+assets = [
+    ["target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway", "/usr/bin/", "755"],
+    ["install/ms-01-azure-gateway.service", "/lib/systemd/system/", "644"],
+    ["config/ms01config.toml", "/etc/growiot/", "644"],
+
+]
+
+# conf-files = ["/etc/volterion/volterion-emssm-operation-service.toml"]
+maintainer-scripts = "install/"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["vendored", "c2d-messages", "direct-methods", "twin-properties", "with-provision", "error-handling-messages"]
+vendored = ["zmq/vendored"]
+direct-methods = []
+twin-properties = []
+c2d-messages = []
+error-handling-messages = []
+with-provision = ["hyper", "hyper-tls"]
+
+
+[dependencies]
+azure_iot_sdk = "0.8.0"
+serde_urlencoded = "0.7"
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["rt-multi-thread", "macros", "net", "io-util", "time", "sync"] }
+native-tls = "0.2.4"
+tokio-native-tls = "0.3"
+futures = "0.3"
+hmac = "0.10"
+sha2 = "0.9"
+base64 = "0.13"
+async-trait = "0.1"
+hyper = { version = "0.14", features = ["client", "http2"], optional = true }
+hyper-tls = { version = "0.5", optional = true }
+form_urlencoded = "1.0"
+config = "0.10"
+env_logger = "0.8"
+zmq = "0.9.2"
+log4rs = "1.0.0"
+log = "0.4.14"
+openssl = { version = "0.10", features = ["vendored"] }
+crossbeam-channel = "0.5.0"
+chrono = "0.4.19"
+async_zmq = "0.3.2"
+
+
+
+[dev-dependencies]
+env_logger = "0.8"
+rand = "0.8"
+rand_distr = "0.4"
+config = "0.10"
+dotenv = "0.15"
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
