@@ -1,0 +1,32 @@
+name: Main Workflow
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+
+
+jobs:
+  evaluate:
+    name: Evaluate flags
+    runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.redeploy_app == 'true'
+    outputs:
+      ms01_build_flag: ${{ steps.check-changes-in-ms01.outputs.any_modified }}
+      ms02_build_flag: ${{ steps.check-changes-in-ms02.outputs.any_modified }}
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Get specific changed files
+        id: check-changes-in-ms01
+        uses: tj-actions/changed-files@v10.1
+        with:
+          path: |
+            firmware/raspberry-pi-zero-w/ms-01-azure-gateway
+      
+      - name: Debug
+        run: | 
+          echo -e "${{ steps.check-changes-in-ms01.outputs.any_modified }}"
