@@ -62,9 +62,3 @@ RUN make install
 
 # Add armel for pi zero build with no hf
 RUN sudo dpkg --add-architecture armel
-
-# --------------------------- C libs --------------------------- #
-
-# Install the nrf24 libs
-
-

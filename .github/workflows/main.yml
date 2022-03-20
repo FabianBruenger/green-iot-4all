@@ -6,10 +6,10 @@ on:
 
 
 jobs:
+  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build. Since there should be one pipeline for all projects, this step is required
   evaluate:
-    name: Evaluate flags
+    name: Evaluate
     runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_dispatch' || github.event.inputs.redeploy_app == 'true'
     outputs:
       ms01_build_flag: ${{ steps.check-changes-in-ms01.outputs.any_modified }}
       ms02_build_flag: ${{ steps.check-changes-in-ms02.outputs.any_modified }}
@@ -27,8 +27,22 @@ jobs:
           files: |
             firmware/raspberry-pi-zero-w/ms-01-azure-gateway
       
-      - name: Debug
-        run: | 
-          echo ${{ steps.check-changes-in-ms01.outputs.any_changed }}
-          echo ${{ steps.check-changes-in-ms01.outputs.any_modified }}
-          echo ${{ steps.check-changes-in-ms01.outputs.any_deleted }}
+      - name: Get specific changed files
+        id: check-changes-in-ms02
+        uses: tj-actions/changed-files@v18.3
+        with:
+          files: |
+            firmware/raspberry-pi-zero-w/ms-02-data-collector
+      
+  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build
+  build_ms01:
+    name: Build ms01
+    needs: evaluate
+    runs-on: ubuntu-latest
+    if: needs.evaluate.outputs.ms01_build_flag == 'false'
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
