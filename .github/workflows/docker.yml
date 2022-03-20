@@ -16,4 +16,4 @@ jobs:
           fetch-depth: 0
       
       - name: Docker login 
-        run: docker login greeniot4all.jfrog.io -u ${{ secrets.JFROG_USER }} -p ${{ JFROG_PASSWORD }}
+        run: docker login greeniot4all.jfrog.io -u ${{ secrets.JFROG_USER }} -p ${{ secrets.JFROG_PASSWORD }}
