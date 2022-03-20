@@ -21,4 +21,6 @@ jobs:
       - name: Build image and push
         run: | 
           docker build -t greeniot4all/pi-compiler:latest -f firmware/raspberry-pi-zero-w/utils/Dockerfile .
+          IMAGE_ID=$( docker images --filter=reference=greeniot4all/pi-compiler --format "{{.ID}}" )
+          docker tag $IMAGE_ID greeniot4all.jfrog.io/greeniot4all-docker-local/pi-compiler:latest
           docker push greeniot4all.jfrog.io/greeniot4all-docker-local/pi-compiler:latest
