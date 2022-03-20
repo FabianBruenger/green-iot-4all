@@ -1,9 +1,9 @@
-name: Main Workflow
+name: Main
 on:
-  # push:
-  #   paths-ignore:
-  #     - 'docs/**'
-  workflow_dispatch:
+  push:
+    paths-ignore:
+      - 'docs/**'
+  # workflow_dispatch:
 
 
 
