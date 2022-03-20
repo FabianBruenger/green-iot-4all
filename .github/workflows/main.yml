@@ -42,6 +42,11 @@ jobs:
     needs: evaluate
     runs-on: ubuntu-latest
     if: needs.evaluate.outputs.ms01_build_flag == 'false'
+    container:
+      image: ghcr.io/owner/image
+      credentials:
+        username: ${{ secrets.JFROG_USER }}
+        password: ${{ secrets.JFROG_PASSWORD }}
 
     steps:
       - name: Checkout Project

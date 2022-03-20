@@ -55,10 +55,9 @@ RUN git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
 # insall cMake for c-libs (zmq)
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
 RUN tar -zxvf cmake-3.20.0.tar.gz
-RUN cd cmake-3.20.0
-RUN ./bootstrap
-RUN make
-RUN make install
+RUN cd cmake-3.20.0 && ./bootstrap
+RUN cd cmake-3.20.0 && make
+RUN cd cmake-3.20.0 && make install
 
 # Add armel for pi zero build with no hf
-RUN sudo dpkg --add-architecture armel
+RUN dpkg --add-architecture armel

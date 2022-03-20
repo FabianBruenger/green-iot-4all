@@ -6,7 +6,7 @@ on:
 
 jobs:
   build_01:
-    name: Build Pi Image
+    name: Build Pi Compiler Image
     runs-on: ubuntu-latest
 
     steps:
@@ -17,3 +17,8 @@ jobs:
       
       - name: Docker login 
         run: echo ${{ secrets.JFROG_PASSWORD }} | docker login greeniot4all.jfrog.io -u ${{ secrets.JFROG_USER }} --password-stdin 
+      
+      - name: Build image and push
+        run: | 
+          docker build -t greeniot4all/pi-compiler:latest -f firmware/raspberry-pi-zero-w/utils/Dockerfile .
+          docker push greeniot4all.jfrog.io/greeniot4all-docker-local/pi-compiler:latest
