@@ -6,6 +6,11 @@
 ### Hardware
 
 For the environmental node you need the following 
+
+### Software
+- [EasyEDA](https://easyeda.com)
+- [Rust](https://www.rust-lang.org/tools/install) 
+- Arduino 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
