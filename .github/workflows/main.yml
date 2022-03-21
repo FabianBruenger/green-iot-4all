@@ -43,10 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.evaluate.outputs.ms01_build_flag == 'false'
     container:
-      image: greeniot4all.jfrog.io/greeniot4all-docker-local/pi-compiler:1.0
+      image: fabianbruenger/greeniot4all:latest
       credentials:
-        username: ${{ secrets.JFROG_USER }}
-        password: ${{ secrets.JFROG_PASSWORD }}
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
     - name: Debug
