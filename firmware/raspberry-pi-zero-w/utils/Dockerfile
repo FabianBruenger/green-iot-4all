@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 # --------------------------- Init --------------------------- #
 
@@ -43,6 +43,7 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 # Check cargo is visible
 RUN cargo --help
 
+# TODO: line 49 and 54 seems not beeing stored.. run these commands in your pipeline again.
 # install pi zero w toolchain
 RUN rustup target add arm-unknown-linux-gnueabihf
 RUN rustup target add arm-unknown-linux-gnueabi 
@@ -53,6 +54,9 @@ RUN cargo install cargo-deb
 RUN rustup default stable
 RUN which rustc
 RUN rustc --version
+
+# Add a cargo config for reference the linker
+COPY config /root/.cargo 
 
 # download pi toolchains
 RUN git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
