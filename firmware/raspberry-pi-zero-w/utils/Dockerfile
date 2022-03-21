@@ -13,6 +13,7 @@ RUN apt-get install -y -q \
     git \
     nano \ 
     wget \ 
+    apt-utils \
     gcc-arm-linux-gnueabi \ 
     gcc-arm-linux-gnueabihf \
     g++-arm-linux-gnueabi \
@@ -48,6 +49,10 @@ RUN rustup target add arm-unknown-linux-gnueabi
 
 # Install cargo deb for building
 RUN cargo install cargo-deb
+
+RUN rustup default stable
+RUN which rustc
+RUN rustc --version
 
 # download pi toolchains
 RUN git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
