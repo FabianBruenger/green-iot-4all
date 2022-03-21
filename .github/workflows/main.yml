@@ -61,6 +61,7 @@ jobs:
     
     - name: Build 
       run: | 
+        rustup default stable
         which rustc
         rustc --version
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
