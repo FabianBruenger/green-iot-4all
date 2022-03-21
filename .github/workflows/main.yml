@@ -63,8 +63,6 @@ jobs:
       run: | 
         rustup default stable
         rustup target add arm-unknown-linux-gnueabi
-        which rustc
-        rustc --version
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
         cargo deb --target=arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
     

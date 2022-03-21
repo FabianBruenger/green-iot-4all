@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 # --------------------------- Init --------------------------- #
 
@@ -7,7 +7,7 @@ RUN apt-get -qq update
 
 
 # Get Ubuntu packages
-RUN apt-get install -y -q \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     build-essential \
     curl \
     git \
@@ -56,7 +56,7 @@ RUN which rustc
 RUN rustc --version
 
 # Add a cargo config for reference the linker
-COPY config /root/.cargo 
+COPY firmware/raspberry-pi-zero-w/utils/config /root/.cargo 
 
 # download pi toolchains
 RUN git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
