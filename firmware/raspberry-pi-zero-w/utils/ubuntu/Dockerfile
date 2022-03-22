@@ -58,7 +58,7 @@ RUN which rustc
 RUN rustc --version
 
 # Add a cargo config for reference the linker
-COPY firmware/raspberry-pi-zero-w/utils/config /root/.cargo 
+COPY firmware/raspberry-pi-zero-w/utils/ubuntu/config /root/.cargo 
 
 # download pi toolchains
 RUN git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
