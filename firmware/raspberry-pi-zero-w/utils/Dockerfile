@@ -27,6 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     libc6-armhf-cross \
     libc6-dev-armhf-cross \
     libssl-dev \
+    liblzma-dev \
     pkg-config \
     libzmq3-dev \
     libczmq-dev \

@@ -16,7 +16,6 @@ assets = [
     ["target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway", "/usr/bin/", "755"],
     ["install/ms-01-azure-gateway.service", "/lib/systemd/system/", "644"],
     ["config/ms01config.toml", "/etc/growiot/", "644"],
-
 ]
 
 # conf-files = ["/etc/volterion/volterion-emssm-operation-service.toml"]

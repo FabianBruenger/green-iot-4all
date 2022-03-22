@@ -50,6 +50,7 @@ deb https://growiot:CQbCYur6du8JuB@growiotartifactory.jfrog.io/artifactory/growi
 - add the solve URL for the artifactory (local)
 - add the auth file for log in
 - add dpkg architectue (armel)
+- dpkg --print-architecture
 
 
 # Set Up Azure ioT Hub
