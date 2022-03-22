@@ -55,6 +55,7 @@ jobs:
         fetch-depth: 0
     
     # DEBIAN_FRONTEND=noninteractive
+    # pkg-config \
     - name: Install 
       run: | 
         sudo apt-get -qq update
@@ -80,10 +81,10 @@ jobs:
           libc6-dev-armhf-cross \
           libssl-dev \
           liblzma-dev \
-          # pkg-config \
           libzmq3-dev \
           libczmq-dev \
           bash-completion
+          
         git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
         wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
         tar -zxvf cmake-3.20.0.tar.gz
