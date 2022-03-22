@@ -60,15 +60,11 @@ jobs:
       run: | 
         sudo apt-get -qq update
         sudo apt-get install -y -q \
-          curl \
-        #   git \
-        #   nano \ 
-        #   wget \ 
-        #   apt-utils \
-        #   gcc-arm-linux-gnueabi \ 
-        #   gcc-arm-linux-gnueabihf \
-        #   g++-arm-linux-gnueabi \
-        #   g++-arm-linux-gnueabihf \
+          git \
+          gcc-arm-linux-gnueabi \ 
+          gcc-arm-linux-gnueabihf \
+          g++-arm-linux-gnueabi \
+          g++-arm-linux-gnueabihf \
         #   make \ 
         #   git-core \ 
         #   ncurses-dev \
