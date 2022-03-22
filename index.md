@@ -1,4 +1,4 @@
-# Green IoT 4 All
+## Introduction
 TODO: Describe the project here!
 ## Requirements 
 TODO: Explain and give an overciewa bout all requirements!
@@ -16,6 +16,7 @@ For the environmental node you need the following:
 - [EasyEDA](https://easyeda.com)
 - [Rust](https://www.rust-lang.org/tools/install) 
 - Arduino 
+- [JFrog artifactory](https://greeniot4all.jfrog.io/ui/packages) for Docker registry and debian registry
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for

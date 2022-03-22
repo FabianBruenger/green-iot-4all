@@ -50,6 +50,7 @@ deb https://growiot:CQbCYur6du8JuB@growiotartifactory.jfrog.io/artifactory/growi
 - add the solve URL for the artifactory (local)
 - add the auth file for log in
 - add dpkg architectue (armel)
+- dpkg --print-architecture
 
 
 # Set Up Azure ioT Hub
@@ -58,3 +59,7 @@ deb https://growiot:CQbCYur6du8JuB@growiotartifactory.jfrog.io/artifactory/growi
 3. Register device
 4. In the ms-01 config insert: device name, Azure IoT Hub name, device.primary-key
 5. In Node-Red: Paste the IoT connection string which got by the cli command
+
+Docker:
+1. ricardodeazambuja/pizero_opencv_and_friends
+2. https://github.com/mdirkse/rust_armv6

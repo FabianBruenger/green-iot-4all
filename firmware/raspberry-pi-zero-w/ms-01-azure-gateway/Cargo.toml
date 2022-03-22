@@ -16,14 +16,13 @@ assets = [
     ["target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway", "/usr/bin/", "755"],
     ["install/ms-01-azure-gateway.service", "/lib/systemd/system/", "644"],
     ["config/ms01config.toml", "/etc/growiot/", "644"],
-
 ]
 
 # conf-files = ["/etc/volterion/volterion-emssm-operation-service.toml"]
 maintainer-scripts = "install/"
 
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html.
 
 [features]
 default = ["vendored", "c2d-messages", "direct-methods", "twin-properties", "with-provision", "error-handling-messages"]
@@ -33,6 +32,7 @@ twin-properties = []
 c2d-messages = []
 error-handling-messages = []
 with-provision = ["hyper", "hyper-tls"]
+# with-provision = []
 
 
 [dependencies]

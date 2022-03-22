@@ -1,0 +1,24 @@
+name: docker
+on:
+  # push:
+  workflow_dispatch:
+
+
+jobs:
+  build_01:
+    name: Build Pi Compiler Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+      
+      - name: Docker login 
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin 
+      
+      - name: Build Ubuntu Image
+        run: | 
+          docker build -t fabianbruenger/greeniot4all:latest -f firmware/raspberry-pi-zero-w/utils/ubuntu/Dockerfile .
+          docker push fabianbruenger/greeniot4all:latest

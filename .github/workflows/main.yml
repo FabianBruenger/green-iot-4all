@@ -1,0 +1,69 @@
+name: main
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+  # workflow_dispatch: 
+
+
+
+jobs:
+  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build. Since there should be one pipeline for all projects, this step is required
+  evaluate:
+    name: Evaluate
+    runs-on: ubuntu-latest
+    outputs:
+      ms01_build_flag: ${{ steps.check-changes-in-ms01.outputs.any_modified }}
+      ms02_build_flag: ${{ steps.check-changes-in-ms02.outputs.any_modified }}
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
+
+      - name: Get specific changed files
+        id: check-changes-in-ms01
+        uses: tj-actions/changed-files@v18.3
+        with:
+          files: |
+            firmware/raspberry-pi-zero-w/ms-01-azure-gateway
+      
+      - name: Get specific changed files
+        id: check-changes-in-ms02
+        uses: tj-actions/changed-files@v18.3
+        with:
+          files: |
+            firmware/raspberry-pi-zero-w/ms-02-data-collector
+      
+  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build
+  build_ms01:
+    name: Build MS01 
+    needs: evaluate
+    runs-on: ubuntu-latest
+    if: needs.evaluate.outputs.ms01_build_flag == 'true'
+    container:
+      image: fabianbruenger/greeniot4all:latest
+      credentials:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    steps:
+    - name: Checkout Project
+      uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0
+    
+    - name: Build 
+      run: | 
+        rustup default stable
+        rustup target add arm-unknown-linux-gnueabi
+        cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
+        cargo build --target=arm-unknown-linux-gnueabi --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
+    
+    - name: Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ms01-build-deb
+        path: |
+          /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
