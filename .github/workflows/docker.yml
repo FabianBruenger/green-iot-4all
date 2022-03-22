@@ -18,7 +18,7 @@ jobs:
       - name: Docker login 
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin 
       
-      - name: Build image and push
+      - name: Build Ubuntu Image
         run: | 
-          docker build -t fabianbruenger/greeniot4all:latest -f firmware/raspberry-pi-zero-w/utils/Dockerfile .
+          docker build -t fabianbruenger/greeniot4all:latest -f firmware/raspberry-pi-zero-w/utils/ubuntu/Dockerfile .
           docker push fabianbruenger/greeniot4all:latest
