@@ -54,10 +54,11 @@ jobs:
       with:
         fetch-depth: 0
     
+    # DEBIAN_FRONTEND=noninteractive
     - name: Install 
       run: | 
         sudo apt-get -qq update
-        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
+        sudo apt-get install -y -q \
           build-essential \
           curl \
           git \
@@ -79,7 +80,7 @@ jobs:
           libc6-dev-armhf-cross \
           libssl-dev \
           liblzma-dev \
-          pkg-config \
+          # pkg-config \
           libzmq3-dev \
           libczmq-dev \
           bash-completion
