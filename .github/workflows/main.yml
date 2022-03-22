@@ -56,7 +56,7 @@ jobs:
     
     - name: Install 
       run: | 
-        apt-get -qq update
+        sudo apt-get -qq update
         DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
           build-essential \
           curl \
