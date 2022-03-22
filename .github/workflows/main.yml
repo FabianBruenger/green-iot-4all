@@ -59,7 +59,7 @@ jobs:
     - name: Install 
       run: | 
         sudo apt-get -qq update
-        sudo apt-get install -y -q gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf g++-arm-linux-gnueabi g++-arm-linux-gnueabihf make git-core ncurses-dev libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev libc6-armhf-cross libc6-dev-armhf-cross libssl-dev liblzma-dev libzmq3-dev libczmq-dev bash-completion
+        sudo apt-get install -y -q gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf g++-arm-linux-gnueabi g++-arm-linux-gnueabihf ncurses-dev libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev libc6-armhf-cross libc6-dev-armhf-cross libssl-dev liblzma-dev libzmq3-dev libczmq-dev 
         git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
         wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
         tar -zxvf cmake-3.20.0.tar.gz
