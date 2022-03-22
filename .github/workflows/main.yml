@@ -60,8 +60,7 @@ jobs:
       run: | 
         sudo apt-get -qq update
         sudo apt-get install -y -q \
-          build-essential \
-        #   curl \
+          curl \
         #   git \
         #   nano \ 
         #   wget \ 
