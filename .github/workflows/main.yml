@@ -59,39 +59,39 @@ jobs:
     - name: Install 
       run: | 
         sudo apt-get -qq update
-        sudo apt-get install -y -q \
-          build-essential \
-          curl \
-          git \
-          nano \ 
-          wget \ 
-          apt-utils \
-          gcc-arm-linux-gnueabi \ 
-          gcc-arm-linux-gnueabihf \
-          g++-arm-linux-gnueabi \
-          g++-arm-linux-gnueabihf \
-          make \ 
-          git-core \ 
-          ncurses-dev \
-          libc6-armel-cross \
-          libc6-dev-armel-cross \
-          binutils-arm-linux-gnueabi \
-          libncurses5-dev \
-          libc6-armhf-cross \
-          libc6-dev-armhf-cross \
-          libssl-dev \
-          liblzma-dev \
-          libzmq3-dev \
-          libczmq-dev \
-          bash-completion
-          
-        git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
-        wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
-        tar -zxvf cmake-3.20.0.tar.gz
-        cd cmake-3.20.0 && ./bootstrap
-        cd cmake-3.20.0 && make
-        cd cmake-3.20.0 && make install
-        dpkg --add-architecture armel
+        # sudo apt-get install -y -q \
+        #   build-essential \
+        #   curl \
+        #   git \
+        #   nano \ 
+        #   wget \ 
+        #   apt-utils \
+        #   gcc-arm-linux-gnueabi \ 
+        #   gcc-arm-linux-gnueabihf \
+        #   g++-arm-linux-gnueabi \
+        #   g++-arm-linux-gnueabihf \
+        #   make \ 
+        #   git-core \ 
+        #   ncurses-dev \
+        #   libc6-armel-cross \
+        #   libc6-dev-armel-cross \
+        #   binutils-arm-linux-gnueabi \
+        #   libncurses5-dev \
+        #   libc6-armhf-cross \
+        #   libc6-dev-armhf-cross \
+        #   libssl-dev \
+        #   liblzma-dev \
+        #   libzmq3-dev \
+        #   libczmq-dev \
+        #   bash-completion
+
+        # git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
+        # wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
+        # tar -zxvf cmake-3.20.0.tar.gz
+        # cd cmake-3.20.0 && ./bootstrap
+        # cd cmake-3.20.0 && make
+        # cd cmake-3.20.0 && make install
+        # dpkg --add-architecture armel
     
     - name: Setup Rust
       uses: ATiltedTree/setup-rust@v1
