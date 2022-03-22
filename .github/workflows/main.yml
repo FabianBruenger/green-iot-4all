@@ -104,7 +104,7 @@ jobs:
 
     - name: Build 
       run: | 
-        cp firmware/raspberry-pi-zero-w/utils/ubuntu/config /root/.cargo 
+        sudo cp firmware/raspberry-pi-zero-w/utils/ubuntu/config /root/.cargo 
         rustup target add arm-unknown-linux-gnueabi
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
         cargo build --target=arm-unknown-linux-gnueabi --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
