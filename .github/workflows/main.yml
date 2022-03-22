@@ -42,11 +42,11 @@ jobs:
     # needs: evaluate
     runs-on: ubuntu-20.04
     # if: needs.evaluate.outputs.ms01_build_flag == 'true'
-    # container:
-    #   image: fabianbruenger/greeniot4all:latest
-    #   credentials:
-    #     username: ${{ secrets.DOCKER_USER }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
+    container:
+      image: fabianbruenger/greeniot4all:latest
+      credentials:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
     - name: Checkout Project
@@ -54,33 +54,33 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Install 
-      run: | 
-        sudo apt-get -qq update
-        sudo apt-get install -y -q gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf g++-arm-linux-gnueabi g++-arm-linux-gnueabihf ncurses-dev libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev libc6-armhf-cross libc6-dev-armhf-cross libssl-dev liblzma-dev libzmq3-dev libczmq-dev 
-        git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
-        wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
-        tar -zxvf cmake-3.20.0.tar.gz
-        cd cmake-3.20.0 && ./bootstrap
-        cd cmake-3.20.0 && make
-        cd cmake-3.20.0 && make install
-        sudo dpkg --add-architecture armel
+    # - name: Install 
+    #   run: | 
+    #     sudo apt-get -qq update
+    #     sudo apt-get install -y -q gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf g++-arm-linux-gnueabi g++-arm-linux-gnueabihf ncurses-dev libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev libc6-armhf-cross libc6-dev-armhf-cross libssl-dev liblzma-dev libzmq3-dev libczmq-dev 
+    #     git clone https://github.com/raspberrypi/tools.git /opt/pi-toolchains
+    #     wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz
+    #     tar -zxvf cmake-3.20.0.tar.gz
+    #     cd cmake-3.20.0 && ./bootstrap
+    #     cd cmake-3.20.0 && make
+    #     cd cmake-3.20.0 && make install
+    #     sudo dpkg --add-architecture armel
     
-    - name: Setup Rust
-      uses: ATiltedTree/setup-rust@v1
-      with:
-        rust-version: stable
-        components: clippy
+    # - name: Setup Rust
+    #   uses: ATiltedTree/setup-rust@v1
+    #   with:
+    #     rust-version: stable
+    #     components: clippy
     
-    - name: Setup Cargo deb
-      run: cargo install cargo-deb
+    # - name: Setup Cargo deb
+    #   run: cargo install cargo-deb
 
     - name: Build 
       run: | 
-        sudo cp firmware/raspberry-pi-zero-w/utils/ubuntu/config /root/.cargo 
-        rustup target add arm-unknown-linux-gnueabi
+        # sudo cp firmware/raspberry-pi-zero-w/utils/ubuntu/config /root/.cargo 
+        # rustup target add arm-unknown-linux-gnueabi 
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
-        cargo build --target=arm-unknown-linux-gnueabi --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
+        cargo build --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
     
     - name: Artifacts
       uses: actions/upload-artifact@v2
