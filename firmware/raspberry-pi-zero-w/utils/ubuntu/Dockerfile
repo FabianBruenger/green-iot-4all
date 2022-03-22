@@ -17,6 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     gcc-arm-linux-gnueabi \ 
     gcc-arm-linux-gnueabihf \
     g++-arm-linux-gnueabi \
+    g++-arm-linux-gnueabihf \
     make \ 
     git-core \ 
     ncurses-dev \
