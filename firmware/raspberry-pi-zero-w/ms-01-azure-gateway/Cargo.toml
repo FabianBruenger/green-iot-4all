@@ -1,6 +1,6 @@
 [package]
 name = "ms-01-azure-gateway"
-version = "1.0.5"
+version = "VERSION_Number"
 authors = ["Fabian Bruenger <fabian.bruenger@pexon-consulting.de>"]
 edition = "2018"
 
