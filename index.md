@@ -1,4 +1,4 @@
-## Introduction
+## Green IoT 4 All
 TODO: Describe the project here!
 ## Requirements 
 TODO: Explain and give an overciewa bout all requirements!
@@ -16,7 +16,10 @@ For the environmental node you need the following:
 - [EasyEDA](https://easyeda.com)
 - [Rust](https://www.rust-lang.org/tools/install) 
 - Arduino 
-- [JFrog artifactory](https://greeniot4all.jfrog.io/ui/packages) for Docker registry and debian registry
+- [JFrog artifactory](https://greeniot4all.jfrog.io/ui/packages) for Debian registry
+- [Docker](https://hub.docker.com/r/fabianbruenger/greeniot4all) as container registry for cross compile images
+- [Node-Red](https://nodered.org/docs/getting-started/)
+- Azure IoT Hub (there is a free testing tier: F1, but of course you need an Azure Account for the set up)
 
 ## Set Up
 
@@ -29,18 +32,28 @@ For the environmental node you need the following:
 6. Increase the [swap size](https://wpitchoune.net/tricks/raspberry_pi3_increase_swap_size.html)
 7. Set up pi as hotspot [Hotspot](https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection)
 8. [Save image ](https://howchoo.com/pi/create-a-backup-image-of-your-raspberry-pi-sd-card-in-mac-osx)
+9. Follow JFrog Artifactory set up description for adding the Debian registry to Pi
+
+
+### Azure IoT Hub
+1. Create a free tier Azure IoT Hub in one resource group
+2. Get the connection string with: `az iot hub connection-string show`
+3. Add the HostName to ms01config.toml l.5
+4. Add the SharedKey to ms01config.toml l.9
+5. On Azure IoT Hub create a device with name RaspberryPiLocal
 
 #### (WIP*) C for Pi zero 
 - `cc server.c -o server -lzmq` to compile with zmq
 - Copy files to cocker image for testing zmq: `docker cp server.c nifty_shirley:/opt/testing_zmq`
 - make without Makefile: `g++ -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s -std=c++0x -Wall -I../ ms2-nrf24-driver.c -lrf24-bcm -lrf24network -lzmq -o nrf24`
-## Docker Images for cross compiling
-Find the base Docker Image [here](https://hub.docker.com/r/fabianbruenger/greeniot4all) 
 
 ## Local Dev
 - `docker cp . <image-name>:/opt/greeniot4all`
 - `docker exec -ti <image-name> sh -c "cd /opt/greeniot4all/firmware/raspberry-pi-zero-w/<project> && cargo build --release --target arm-unknown-linux-gnueabi (--output /opt/build/<project>.deb)"`
-- `docker exec -ti <image-name> sh -c "scp /opt/greeniot4all/firmware/raspberry-pi-zero-w/<project>/target/arm-unknown-linux-gnueabi/release/ms-02-data-collector pi@192.168.0.67:/home/pi"`
+- `docker exec -ti <image-name> sh -c "scp /opt/greeniot4all/firmware/raspberry-pi-zero-w/<project>/target/arm-unknown-linux-gnueabi/release/ms-02-data-collector pi@<IP-address>:/home/pi"`
+- `systemctl status service-name.service`
+- `journalctl -u service-name.service -f`
+- Node-red: Changin favicon: https://gist.github.com/mohnen/6923d5eb2e4547bb7e5bd90546d2ee80
 
 
 

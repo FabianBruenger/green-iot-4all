@@ -2,11 +2,11 @@
 #                       Azure IoT Hub settings
 # ----------------------------------------------------------------
 # Name of Azure IoT Hub
-hostname = "azure-iot-hub-dev.azure-devices.net"
+hostname = "testingLocal.azure-devices.net"
 # The device adressed
 device_id = "RaspberryPiLocal"
 # Connection String from Azure IoT Hub
-shared_access_key = "Xt4uYkqyAbfJqQjfMfOBDTFn/KUMs+Av1R8DwirvmqA="
+shared_access_key = "0F9iifc6zt5KtpvVx3BXfEnFv/ep3E2zZ+jbhIds3yc="
 
 # ----------------------------------------------------------------
 #                           ZMQ
