@@ -17,26 +17,34 @@ For the environmental node you need the following:
 - [Rust](https://www.rust-lang.org/tools/install) 
 - Arduino 
 - [JFrog artifactory](https://greeniot4all.jfrog.io/ui/packages) for Docker registry and debian registry
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Set Up
 
-```markdown
-Syntax highlighted code block
+### Raspberry Pi
+1. Configure the SD card with Raspberry image app. Install the std image. Congirue pi in headless mode
+2. Create an empty ssh for ssh enablement while boot
+3. Create the wsp file with wlan configs https://www.raspberrypi.org/documentation/configuration/wireless/headless.md
+4. Start the pi, check connection in local wlan and connect to pi via ssh: ssh pi@<ip-address> (raspberry)
+5. For installing the NRF24 lib follow this:
+6. Increase the [swap size](https://wpitchoune.net/tricks/raspberry_pi3_increase_swap_size.html)
+7. Set up pi as hotspot [Hotspot](https://www.raspberryconnect.com/projects/65-raspberrypi-hotspot-accesspoints/158-raspberry-pi-auto-wifi-hotspot-switch-direct-connection)
+8. [Save image ](https://howchoo.com/pi/create-a-backup-image-of-your-raspberry-pi-sd-card-in-mac-osx)
 
-# Header 1
-## Header 2
-### Header 3
+#### (WIP*) C for Pi zero 
+- `cc server.c -o server -lzmq` to compile with zmq
+- Copy files to cocker image for testing zmq: `docker cp server.c nifty_shirley:/opt/testing_zmq`
+- make without Makefile: `g++ -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s -std=c++0x -Wall -I../ ms2-nrf24-driver.c -lrf24-bcm -lrf24network -lzmq -o nrf24`
+## Docker Images for cross compiling
+Find the base Docker Image [here](https://hub.docker.com/r/fabianbruenger/greeniot4all) 
 
-- Bulleted
-- List
+## Local Dev
+- `docker cp . <image-name>:/opt/greeniot4all`
+- `docker exec -ti <image-name> sh -c "cd /opt/greeniot4all/firmware/raspberry-pi-zero-w/<project> && cargo build --release --target arm-unknown-linux-gnueabi (--output /opt/build/<project>.deb)"`
+- `docker exec -ti <image-name> sh -c "scp /opt/greeniot4all/firmware/raspberry-pi-zero-w/<project>/target/arm-unknown-linux-gnueabi/release/ms-02-data-collector pi@192.168.0.67:/home/pi"`
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+--------------
+(WIP*) = Work in Prgress. Dont pay too much attention on these infos

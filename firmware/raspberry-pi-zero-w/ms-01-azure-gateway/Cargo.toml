@@ -22,7 +22,7 @@ assets = [
 maintainer-scripts = "install/"
 
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html.
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [features]
 default = ["vendored", "c2d-messages", "direct-methods", "twin-properties", "with-provision", "error-handling-messages"]
