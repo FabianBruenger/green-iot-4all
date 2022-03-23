@@ -54,6 +54,7 @@ For the environmental node you need the following:
 - `systemctl status service-name.service`
 - `journalctl -u service-name.service -f`
 - Node-red: Changin favicon: https://gist.github.com/mohnen/6923d5eb2e4547bb7e5bd90546d2ee80
+- Get latest artifacts (direct download, not via JFrog) `curl https://github.com/FabianBruenger/green-iot-4all/workflows/main/builds/artifacts/file.zip`
 
 
 
