@@ -57,7 +57,7 @@ jobs:
     - name: Build 
       run: | 
         rustup default stable
-        # rustup target add arm-unknown-linux-gnueabi
+        rustup target add arm-unknown-linux-gnueabi
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
         cargo build --target arm-unknown-linux-gnueabi --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
     
