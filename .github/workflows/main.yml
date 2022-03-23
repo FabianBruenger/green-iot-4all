@@ -59,11 +59,13 @@ jobs:
         rustup default stable
         rustup target add arm-unknown-linux-gnueabi
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
-        cargo build --target arm-unknown-linux-gnueabi --target-dir /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
+        cargo build --release --target arm-unknown-linux-gnueabi
+        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
     
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ms01-build-deb
         path: |
-          /opt/build/arm-unknown-linux-gnueabi/ms-01-azure-gateway
+          /opt/build/ms-01-azure-gateway.deb
+          firmware/raspberry-pi-zero-w/ms-01-azure-gateway/target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway
