@@ -20,5 +20,5 @@ jobs:
       
       - name: Build Ubuntu Image
         run: | 
-          docker build -t fabianbruenger/greeniot4all:16.04 -f docker/ubuntu-16.04/Docker .
+          docker build -t fabianbruenger/greeniot4all:16.04 -f docker/ubuntu-16.04/Dockerfile .
           docker push fabianbruenger/greeniot4all:16.04
