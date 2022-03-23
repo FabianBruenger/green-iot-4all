@@ -25,7 +25,7 @@ jobs:
         uses: tj-actions/changed-files@v18.3
         with:
           files: |
-            firmware/raspberry-pi-zero-w/ms-02-data-collector
+            firmware/raspberry-pi-zero-w/ms-01-azure-gateway
       
       - name: Get specific changed files
         id: check-changes-in-ms02
