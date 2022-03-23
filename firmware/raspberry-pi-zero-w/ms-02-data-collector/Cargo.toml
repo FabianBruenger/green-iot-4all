@@ -1,6 +1,6 @@
 [package]
 name = "ms-02-data-collector"
-version = "2.0.10"
+version = "VERSION_NUMBER"
 authors = ["Fabian Bruenger <fabian.bruenger@outlook.com>"]
 edition = "2018"
 
@@ -22,7 +22,7 @@ assets = [
 # conf-files = ["/etc/volterion/volterion-emssm-operation-service.toml"]
 maintainer-scripts = "install/"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html.
 
 [features]
 default = ["vendored"]

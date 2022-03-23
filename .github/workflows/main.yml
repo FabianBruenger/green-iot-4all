@@ -34,9 +34,8 @@ jobs:
           files: |
             firmware/raspberry-pi-zero-w/ms-02-data-collector
       
-  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build
   build_ms01:
-    name: Build MS01 
+    name: Build ms01 
     needs: evaluate
     runs-on: ubuntu-20.04
     if: needs.evaluate.outputs.ms01_build_flag == 'true'
@@ -69,3 +68,38 @@ jobs:
         path: |
           /opt/build/ms-01-azure-gateway.deb
           firmware/raspberry-pi-zero-w/ms-01-azure-gateway/target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway
+
+  build_ms02:
+    name: Build ms02
+    needs: evaluate
+    runs-on: ubuntu-20.04
+    if: needs.evaluate.outputs.ms02_build_flag == 'true'
+    container:
+      image: fabianbruenger/greeniot4all:16.04
+      credentials:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    steps:
+    - name: Checkout Project
+      uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0
+
+    - name: Build 
+      run: | 
+        rustup default stable
+        rustup target add arm-unknown-linux-gnueabi
+        cd firmware/raspberry-pi-zero-w/ms-02-data-collector
+        cargo build --release --target arm-unknown-linux-gnueabi
+        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/ms-02-data-collector.deb
+    
+    - name: Deploy 
+      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-02-data-collector;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-02-data-collector.deb
+    - name: Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ms02-build-deb
+        path: |
+          /opt/build/ms-02-data-collector.deb
+          firmware/raspberry-pi-zero-w/ms-02-data-collector/target/arm-unknown-linux-gnueabi/release/ms-02-data-collector
