@@ -31,7 +31,6 @@ RUN cd cmake-3.20.0 && make install
 
 # Get Rust; NOTE: using sh for better compatibility with other base images
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-RUN source $HOME/.cargo/env
 
 # Add .cargo/bin to PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
