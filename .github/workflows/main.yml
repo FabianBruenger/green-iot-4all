@@ -60,6 +60,8 @@ jobs:
         cargo build --release --target arm-unknown-linux-gnueabi
         cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
     
+    - name: Deploy 
+      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-01-azure-gateway;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-01-azure-gateway.deb
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
