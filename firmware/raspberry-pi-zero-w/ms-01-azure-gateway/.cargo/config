@@ -1,5 +1,5 @@
 [target.arm-unknown-linux-gnueabi]
-linker = "/opt/pi-toolchains/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin/arm-bcm2708-linux-gnueabi-gcc"
+linker = "arm-linux-gnueabi-gcc"
 
 [target.arm-unknown-linux-gnueabihf]
 linker = "arm-linux-gnueabihf-gcc"

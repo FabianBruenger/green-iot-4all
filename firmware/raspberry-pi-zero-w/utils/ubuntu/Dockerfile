@@ -7,6 +7,9 @@ RUN apt-get -qq update
 
 
 # Get Ubuntu packages
+# libssl-dev = for openssl-sys crate
+# build-essential = cmake
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     build-essential \
     curl \
@@ -27,7 +30,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     libncurses5-dev \
     libc6-armhf-cross \
     libc6-dev-armhf-cross \
-    libssl-dev \
+    libssl-dev \ 
     liblzma-dev \
     pkg-config \
     libzmq3-dev \
