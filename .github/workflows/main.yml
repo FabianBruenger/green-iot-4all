@@ -53,7 +53,7 @@ jobs:
     name: build azure gateway service 
     needs: evaluate
     runs-on: ubuntu-20.04
-    if: needs.evaluate.outputs.ms01_build_flag == 'true'
+    if: needs.evaluate.outputs.ms01_build_flag == 'true' || startsWith(github.event.ref, 'refs/tags/')
     container:
       image: fabianbruenger/greeniot4all:16.04
       credentials:
@@ -95,7 +95,7 @@ jobs:
     name: build data collector service 
     needs: evaluate
     runs-on: ubuntu-20.04
-    if: needs.evaluate.outputs.ms01_build_flag == 'true'
+    if: needs.evaluate.outputs.ms01_build_flag == 'true' || startsWith(github.event.ref, 'refs/tags/') 
     container:
       image: fabianbruenger/greeniot4all:16.04
       credentials:
