@@ -41,7 +41,7 @@ jobs:
         id: version
         run: | 
           git fetch --prune --unshallow
-          echo "::set-output name=VERSION::$( if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
+          echo "::set-output name=VERSION::$( if [[ "${{ env.GITHUB_REF_NAME }}" == "release" || "${{ env.GITHUB_REF }}" == "refs/tags/*" ]]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
           if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi 
 
 
