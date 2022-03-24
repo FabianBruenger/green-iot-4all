@@ -61,6 +61,7 @@ After setting up the Environment Node you can continue with the Root Node's Ardu
 ![Root Node Debug](assets/root-node-debug.png)
 Here it can be, that not all the sensor data are recieved in the right order or are displayed well. Sometimes it happens to be a bit fickle. But lets have a short look on one transmitted string: 
 `S0001:05{2.00}E`
+
 I will shortly dig into the transmitting rules i came up with. The above string represents one transmitted sensor value. The "S" is representing the start of the package, while the "E" is representing the end of the package. Think of it as a start and stop byte. The next 4 numbers/bytes are telling you from which node the value is coming from, the Node number: 0001. This is based on the NRF24network library, which has a specific lableing of the nodes in the radio network. Important is, that there must always be only one Node represented by one number. This config is corresbondig with firmware/raspberry-pi-zero-w/ms-02-data-collector/config/sensor-data.json. 
 The two bytes after the colon represents the sensor number. Within the tail clips there is the actual sensor value as floating point. 
 
@@ -94,6 +95,7 @@ This is an open source project, and although i invested a lot of time in it ther
 2. Hardware development easyEDA/KiCAD/other some othe IDE i dont know about: help to create our own PCBs with all sensors and MCUs mounted to one product; work on the other two Nodes in pipeline: Water and Actuator Node
 3. Product design 3D printing: help of building handy and robust cases for the hardware
 4. Or work on topics you see and want to discuss or contribute! 
+
 ### Donation
 [Support](https://www.paypal.com/donate/?hosted_button_id=M6QRBT6Y5YB72) the project
 
