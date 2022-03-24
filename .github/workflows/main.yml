@@ -73,6 +73,7 @@ jobs:
       run: |
         rustup default stable
         rustup target add arm-unknown-linux-gnueabi
+        echo ${{ needs.evaluate.outputs.version }}
 
     # All version in release are semantic
     - name: Build Release
