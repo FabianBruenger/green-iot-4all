@@ -41,8 +41,8 @@ jobs:
         id: version
         run: | 
           git fetch --prune --unshallow
-          echo "::set-output name=VERSION::$( if [[ github.ref == main || github.ref == refs/tags/* ]]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
-          if [[ github.ref == main || github.ref == refs/tags/* ]]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi 
+          echo "::set-output name=VERSION::$( if [[ ${{github.ref }} == main || ${{github.ref }} == refs/tags/* ]]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
+          if [[ ${{github.ref }} == main || ${{github.ref }} == refs/tags/* ]]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi 
 
   # -----------------------------------------------------------------------------------------------
   # Builds
