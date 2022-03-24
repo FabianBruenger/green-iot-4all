@@ -77,6 +77,7 @@ jobs:
         sed -i -e "s/VERSION_NUMBER/${{ needs.evaluate.outputs.version }}/g" firmware/raspberry-pi-zero-w/ms-01-azure-gateway/Cargo.toml
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
         cargo build --release --target arm-unknown-linux-gnueabi
+        mkdir -r /opt/build
         cp target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway /opt/build/ms-01-azure-gateway-${{ needs.evaluate.outputs.version }}
         cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
 
@@ -118,6 +119,7 @@ jobs:
         sed -i -e "s/VERSION_NUMBER/${{ needs.evaluate.outputs.version }}/g" firmware/raspberry-pi-zero-w/ms-02-data-collector/Cargo.toml
         cd firmware/raspberry-pi-zero-w/ms-02-data-collector
         cargo build --release --target arm-unknown-linux-gnueabi
+        mkdir -r /opt/build
         cp target/arm-unknown-linux-gnueabi/release/ms-02-data-collector /opt/build/ms-02-data-collector-${{ needs.evaluate.outputs.version }}
         cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
 
