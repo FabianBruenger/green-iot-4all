@@ -46,6 +46,7 @@ jobs:
           echo "::set-output name=VERSION::$( if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
           # For the debian packages and the compiled Rust firmware file name we will use the additional prebuild versioning. 
           # echo '::set-output name=VERSION_BUILD::$( git describe --tags | awk -F - '{print $1"-prerelease."$2}' )'
+          if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi 
 
 
   # -----------------------------------------------------------------------------------------------
