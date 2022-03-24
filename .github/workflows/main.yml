@@ -80,8 +80,8 @@ jobs:
         cp target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway /opt/build/ms-01-azure-gateway-${{ needs.evaluate.outputs.version }}
         cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
 
-    - name: Deploy 
-      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-01-azure-gateway;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-01-*.deb
+    # - name: Deploy 
+    #   run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-01-azure-gateway;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-01-*.deb
 
     - name: Artifacts
       uses: actions/upload-artifact@v2
@@ -122,8 +122,8 @@ jobs:
         cp target/arm-unknown-linux-gnueabi/release/ms-02-data-collector /opt/build/ms-02-data-collector-${{ needs.evaluate.outputs.version }}
         cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
 
-    - name: Deploy 
-      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-02-data-collector;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-02-*.deb
+    # - name: Deploy 
+    #   run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-02-data-collector;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-02-*.deb
 
     - name: Artifacts
       uses: actions/upload-artifact@v2
