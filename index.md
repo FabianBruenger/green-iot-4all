@@ -4,23 +4,23 @@ This project is based on the idea to create low cost opensource IoT sensors and 
 Lets have a look on the basic idea! 
 
 ![Architecture Set Up](assets/architecture-setup.png)
-The central Node (Node: Piece of hard- & sortware doing one specific job) is the Root Node (Server Node). The Root Node collects the data and works as a gateway to the cloud. It is (should) also possible to operate without internet access. Then it is working as a hotspot where you can connect to and have access to a web interface.
+The central Node (Node: Piece of hard- & sortware doing one specific job) is the Root Node (Server Node). The Root Node collects the data and works as a gateway to the cloud. It is (should be) also possible to operate without internet access. Then it is working as a hotspot where you can connect to and have access to a web interface.
 
-Besides the Root Node there are three major types of other Nodes (Client Nodes): Environment, Water and Actuator Node. So far the Environment Node is ready as a prototype. The other two Nodes must be still designed. 
+Besides the Root Node there are three major types of other Nodes (Client Nodes): Environment, Water and Actuator Node. So far the Environment Node is ready as a prototype and measures these five values: light intesitiy, humidity, temperature and gas quality (CO2 and VOC). The other two Nodes must be still designed. 
 
 The Node communication is based on the NRF24 transmitter module. Here we are using the great NRF24 network lib, which enables us to span a network between the nodes and always be able to transport the data to the root node (This still needs a stress test since i am just working with 2 Nodes at the moment. But i already tried it with three nodes and client to client to server node communication).
 ## Requirements
 
-Get your hardware together, flash your Arduinos, set up your Pi and off you go! ... I hope it would be that easy.. Okey, lets dig into it, starting with the hardware.
+Get your hardware together, flash your Arduinos, set up your Pi and off you go! 
 
 ### Hardware
-It is crazy, almost all the Pis are sold out.. i hope you get lucky!
 
-For the Root Node you need the following:
+#### For the Root Node you need the following:
 - [Raspberry Pi Zero W](https://www.reichelt.de/de/de/raspberry-pi-zero-2-w-4x-1-ghz-512-mb-ram-wlan-bt-rasp-pi-zero2-w-p313902.html?PROVID=2788&gclid=CjwKCAjwiuuRBhBvEiwAFXKaNLF7tvI48TUThVGy3qs2dCKXeFIVZCKTx82qTqWBBAUfXMqyGoIoPBoCbLwQAvD_BwE&&r=1)
 - [Arduino Nano](https://www.amazon.de/AZDelivery-Atmega328-gratis-Arduino-kompatibel/dp/B078SBBST6/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=Arduino+nano&qid=1616487341&sr=8-3)
 - [NRF24](https://www.amazon.de/AZDelivery-NRF24L01-Wireless-Arduino-Raspberry/dp/B06XJN417D/ref=sr_1_1_sspa?__mk_de_DE=ÅMÅŽÕÑ&crid=3CWF8YKB82U61&keywords=NRF24&qid=1647773505&sprefix=nrf24%2Caps%2C81&sr=8-1-spons&psc=1&smid=A1X7QLRQH87QA3&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExOU9QRDBBRDZXVUtNJmVuY3J5cHRlZElkPUEwODY3ODMzTUgyT1ZTRzRMQThMJmVuY3J5cHRlZEFkSWQ9QTAxMTYzOThETks5TU9DWjAzRVYmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) radio transmitter
 - Either print the node-root-shield via EasyEDA or use a breadboard to connect allsensors (cables and breadboard is not listed here)
+![Root Node](assets/root-node.png)
 
 For the Environment Node you need the following:
 - [Arduino Nano](https://www.amazon.de/AZDelivery-Atmega328-gratis-Arduino-kompatibel/dp/B078SBBST6/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=Arduino+nano&qid=1616487341&sr=8-3)
