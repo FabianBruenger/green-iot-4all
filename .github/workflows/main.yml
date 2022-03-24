@@ -6,13 +6,16 @@ on:
   # workflow_dispatch: 
 
 jobs:
-  # General evaluation step to set specific build flags. E.g if files are changed in ms01 there must be a new build. Since there should be one pipeline for all projects, this step is required
+  # -----------------------------------------------------------------------------------------------
+  # Pre step
+  # -----------------------------------------------------------------------------------------------
   evaluate:
     name: Evaluate
     runs-on: ubuntu-latest
     outputs:
       ms01_build_flag: ${{ steps.check-changes-in-ms01.outputs.any_modified }}
       ms02_build_flag: ${{ steps.check-changes-in-ms02.outputs.any_modified }}
+      version: ${{ steps.version.outputs.VERSION }}
 
     steps:
       - name: Checkout Project
@@ -34,11 +37,23 @@ jobs:
           files: |
             firmware/raspberry-pi-zero-w/ms-02-data-collector
       
+      - name: Version
+        id: version
+        run: | 
+          git fetch --prune --unshallow
+          echo "::set-output name=VERSION::$( if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi )"
+          if [ "${{ env.GITHUB_REF_NAME }}" == "release" ]; then git describe; else git describe --tags | awk -F - '{print $1"-prerelease."$2}'; fi 
+
+
+  # -----------------------------------------------------------------------------------------------
+  # Builds
+  # -----------------------------------------------------------------------------------------------
+
   build_ms01:
-    name: Build ms01 
+    name: build azure gateway service 
     needs: evaluate
     runs-on: ubuntu-20.04
-    if: needs.evaluate.outputs.ms01_build_flag == 'true'
+    if: needs.evaluate.outputs.ms01_build_flag == 'true' || startsWith(github.event.ref, 'refs/tags/')
     container:
       image: fabianbruenger/greeniot4all:16.04
       credentials:
@@ -50,30 +65,37 @@ jobs:
       uses: actions/checkout@v2.3.4
       with:
         fetch-depth: 0
-
-    - name: Build 
-      run: | 
+    
+    - name: Rust fix 
+      run: |
         rustup default stable
         rustup target add arm-unknown-linux-gnueabi
+        echo ${{ needs.evaluate.outputs.version }}
+
+    - name: Build Release
+      run: | 
+        sed -i -e "s/VERSION_NUMBER/${{ needs.evaluate.outputs.version }}/g" firmware/raspberry-pi-zero-w/ms-01-azure-gateway/Cargo.toml
         cd firmware/raspberry-pi-zero-w/ms-01-azure-gateway
         cargo build --release --target arm-unknown-linux-gnueabi
-        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/ms-01-azure-gateway.deb
-    
+        mkdir /opt/build
+        cp target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway /opt/build/ms-01-azure-gateway-${{ needs.evaluate.outputs.version }}
+        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
+
     - name: Deploy 
-      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-01-azure-gateway;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-01-azure-gateway.deb
+      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-01-azure-gateway;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-01-*.deb
+
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ms01-build-deb
         path: |
-          /opt/build/ms-01-azure-gateway.deb
-          firmware/raspberry-pi-zero-w/ms-01-azure-gateway/target/arm-unknown-linux-gnueabi/release/ms-01-azure-gateway
+          /opt/build
 
   build_ms02:
-    name: Build ms02
+    name: build data collector service 
     needs: evaluate
     runs-on: ubuntu-20.04
-    if: needs.evaluate.outputs.ms02_build_flag == 'true'
+    if: needs.evaluate.outputs.ms01_build_flag == 'true' || startsWith(github.event.ref, 'refs/tags/') 
     container:
       image: fabianbruenger/greeniot4all:16.04
       credentials:
@@ -85,21 +107,28 @@ jobs:
       uses: actions/checkout@v2.3.4
       with:
         fetch-depth: 0
-
-    - name: Build 
-      run: | 
+    
+    - name: Rust fix 
+      run: |
         rustup default stable
         rustup target add arm-unknown-linux-gnueabi
+        echo ${{ needs.evaluate.outputs.version }}
+
+    - name: Build Release
+      run: | 
+        sed -i -e "s/VERSION_NUMBER/${{ needs.evaluate.outputs.version }}/g" firmware/raspberry-pi-zero-w/ms-02-data-collector/Cargo.toml
         cd firmware/raspberry-pi-zero-w/ms-02-data-collector
         cargo build --release --target arm-unknown-linux-gnueabi
-        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/ms-02-data-collector.deb
-    
+        mkdir /opt/build
+        cp target/arm-unknown-linux-gnueabi/release/ms-02-data-collector /opt/build/ms-02-data-collector-${{ needs.evaluate.outputs.version }}
+        cargo deb --target arm-unknown-linux-gnueabi --output /opt/build/
+
     - name: Deploy 
-      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-02-data-collector;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-02-data-collector.deb
+      run: curl -u${{ secrets.JFROG_USER }}:${{ secrets.JFROG_PASSWORD }} -XPUT "https://greeniot4all.jfrog.io/artifactory/greeniot4all-debian/pool/ms-02-data-collector;deb.distribution=trusty;deb.component=private;deb.architecture=armel" -T /opt/build/ms-02-*.deb
+
     - name: Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ms02-build-deb
         path: |
-          /opt/build/ms-02-data-collector.deb
-          firmware/raspberry-pi-zero-w/ms-02-data-collector/target/arm-unknown-linux-gnueabi/release/ms-02-data-collector
+          /opt/build
