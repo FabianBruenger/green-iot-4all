@@ -98,7 +98,7 @@ void loop(void) {
   // Network update first command always
   network.update();
 
-  // ------------------------------------- Reading network -------------------------------------//
+  // ------------------------------------- Reading network & send via UART -------------------------------------//
   while (network.available()) {
 
     // create header
@@ -115,6 +115,7 @@ void loop(void) {
     // Build msg for gateway
     String msggw = "S" + address + ":0" + String(datarx.sensor) + "{" + String(datarx.data) + "}" + "E";
 
+    // Send data to Raspberry Pi via UART
     Serial.print(msggw);
   }
 
@@ -123,7 +124,7 @@ void loop(void) {
   // -------------------------------- Handle UART rx & Transmit network ------------------------//
   if (Serial.available()) {
 
-    // read data as String. TO DO test from raspi
+    // read data as String. 
     String data = Serial.readString();
 
     // Testing for gateway
