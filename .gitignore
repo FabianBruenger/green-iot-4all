@@ -12,3 +12,5 @@ firmware/raspberry-pi-zero-w/ms-01-azure-gateway/*.yml
 firmware/raspberry-pi-zero-w/ms-02-data-collector/target
 firmware/raspberry-pi-zero-w/ms-02-data-collector/Cargo.lock
 firmware/raspberry-pi-zero-w/ms-02-data-collector/*.yml
+firmware/raspberry-pi-zero-w/ms-03-frontend/Cargo.lock
+firmware/raspberry-pi-zero-w/ms-03-frontend/target

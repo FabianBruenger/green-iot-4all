@@ -7,7 +7,7 @@ async fn index(tera: web::Data<Tera>) -> impl Responder {
     data.insert("title", "Hacker Clone");
     data.insert("name","Fabian");
 
-    // 
+    // render tara template
     let rendered = tera.render("index.html", &data).unwrap();
     HttpResponse::Ok().body(rendered)
 }
