@@ -1,0 +1,10 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/actix_rt-a4b3c4fe6bab796e.rmeta: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/arbiter.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/runtime.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/system.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/libactix_rt-a4b3c4fe6bab796e.rlib: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/arbiter.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/runtime.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/system.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/actix_rt-a4b3c4fe6bab796e.d: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/arbiter.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/runtime.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/system.rs
+
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/lib.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/arbiter.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/runtime.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-rt-2.7.0/src/system.rs:

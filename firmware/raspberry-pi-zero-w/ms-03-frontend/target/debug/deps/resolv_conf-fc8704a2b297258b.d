@@ -1,0 +1,10 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/resolv_conf-fc8704a2b297258b.rmeta: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/grammar.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/ip.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/config.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/libresolv_conf-fc8704a2b297258b.rlib: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/grammar.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/ip.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/config.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/resolv_conf-fc8704a2b297258b.d: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/grammar.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/ip.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/config.rs
+
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/lib.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/grammar.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/ip.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/resolv-conf-0.7.0/src/config.rs:

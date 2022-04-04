@@ -1,0 +1,10 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/rls/debug/deps/actix_router-dc79b1667aebfb9d.rmeta: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/de.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/path.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/resource.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/router.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/url.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/rls/debug/deps/actix_router-dc79b1667aebfb9d.d: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/de.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/path.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/resource.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/router.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/url.rs
+
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/lib.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/de.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/path.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/resource.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/router.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/actix-router-0.2.7/src/url.rs:

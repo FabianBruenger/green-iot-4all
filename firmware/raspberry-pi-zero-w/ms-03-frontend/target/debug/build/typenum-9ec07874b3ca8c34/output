@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/build/typenum-9ec07874b3ca8c34/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/build/typenum-9ec07874b3ca8c34/out/op.rs

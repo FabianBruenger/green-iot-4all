@@ -1,0 +1,1 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/ms-03-frontend: /Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/src/main.rs

@@ -1,0 +1,9 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/libfutures_macro-8c112482599f9dd3.dylib: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/executor.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/join.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/select.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/stream_select.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/debug/deps/futures_macro-8c112482599f9dd3.d: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/executor.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/join.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/select.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/stream_select.rs
+
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/lib.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/executor.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/join.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/select.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-macro-0.3.21/src/stream_select.rs:

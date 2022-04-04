@@ -1,0 +1,10 @@
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/rls/debug/deps/cookie-847a9fb7f97adc33.rmeta: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/builder.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/parse.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/jar.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/delta.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/draft.rs
+
+/Users/fabianbrunger/Documents/Programming/green-iot-4all/firmware/raspberry-pi-zero-w/ms-03-frontend/target/rls/debug/deps/cookie-847a9fb7f97adc33.d: /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/lib.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/builder.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/parse.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/jar.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/delta.rs /Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/draft.rs
+
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/lib.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/builder.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/parse.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/jar.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/delta.rs:
+/Users/fabianbrunger/.cargo/registry/src/github.com-1ecc6299db9ec823/cookie-0.14.4/src/draft.rs:
